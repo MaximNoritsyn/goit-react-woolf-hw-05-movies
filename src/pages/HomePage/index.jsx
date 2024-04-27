@@ -1,20 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { MoviesList } from '../../components/MovieList';
-import { getTrandingMovies } from '../../api/themoviedb';
+import { useMovies } from '../../context/Movies/index';
 
 export const HomePage = () => {
-    const [movies, setMovies] = useState([]);
+    const { movies, setTrandingMovies } = useMovies();
 
     useEffect(() => {
-        const setTrandingMovies = async () => {
-            try {
-                const data = await getTrandingMovies();
-                setMovies(data.results);
-            }
-            catch (error) {
-                console.error(error);
-            }
-        }
         setTrandingMovies()
     }, []);
 
