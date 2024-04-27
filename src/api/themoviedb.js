@@ -22,3 +22,9 @@ export const searchMovies = async (query, page = 1) => {
     const response = await client.get(url);
     return response.data;
 }
+
+export const getMovieDetails = async (id) => {
+    const url = `movie/${id}`
+    const response = await client.get(url);
+    return response.data;
+}
