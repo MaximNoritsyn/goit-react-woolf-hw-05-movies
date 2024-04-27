@@ -3,4 +3,6 @@
 .main {
   display: block;
   color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+  height: 100vh;
 }

@@ -3,16 +3,14 @@ import { MoviesList } from '../../components/MovieList';
 import { useMovies } from '../../context/Movies/index';
 
 export const HomePage = () => {
-    const { movies, setTrandingMovies } = useMovies();
+  const { setTrandingMovies } = useMovies();
 
-    useEffect(() => {
-        setTrandingMovies()
-    }, []);
+  useEffect(() => {
+    setTrandingMovies()
+  }, []);
 
 
   return (
-    <div>
-      {movies.length > 0 && <MoviesList movies={movies} />}
-    </div>
+    <MoviesList />
   );
 }

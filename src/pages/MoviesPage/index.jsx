@@ -1,13 +1,15 @@
+import { useEffect } from 'react';
 import { MoviesList } from '../../components/MovieList';
 import { useMovies } from '../../context/Movies/index';
 
 
 export const MoviesPage = () => {
-    const { movies } = useMovies();
+    const { setMovies } = useMovies();
+
+    useEffect(() => {
+        setMovies([])
+    }, []);
     
-    return (
-        <div>
-        {movies.length > 0 && <MoviesList movies={movies} />}
-        </div>
+    return (<MoviesList />
     );
     }

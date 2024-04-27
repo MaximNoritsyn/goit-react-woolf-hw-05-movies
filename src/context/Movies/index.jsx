@@ -10,6 +10,8 @@ export const useMovies = () => {
 export const MoviesProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState('');
+    const [page, setPage] = useState(1);
+    const [canLoadMore, setCanLoadMore] = useState(false);
     
     const setTrandingMovies = async () => {
         try {
@@ -21,10 +23,11 @@ export const MoviesProvider = ({ children }) => {
         }
     }
 
-    const setSearchMovies = async (query) => {
+    const setSearchMovies = async (query, page=1) => {
         try {
-            const data = await searchMovies(query);
+            const data = await searchMovies(query, page);
             setMovies(data.results);
+            setCanLoadMore(data.page < data.total_pages);
         }
         catch (error) {
             console.error(error);
@@ -33,12 +36,29 @@ export const MoviesProvider = ({ children }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        setPage(1);
         setSearchMovies(query);
-        setQuery('');
+    };
+
+    useEffect(() => {
+        if (page > 1) {
+            setSearchMovies(query, page);
+        }
+    }, [page]);
+
+    const values = {
+        movies,
+        setMovies,
+        setQuery,
+        canLoadMore,
+        setPage,
+        setCanLoadMore,
+        setTrandingMovies,
+        handleSubmit
     };
 
     return (
-        <MoviesContext.Provider value={{ movies, setMovies, setQuery, setTrandingMovies, handleSubmit }}>
+        <MoviesContext.Provider value={values}>
         {children}
         </MoviesContext.Provider>
     );

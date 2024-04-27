@@ -10,14 +10,15 @@ export const SearchForm = () => {
     };
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={css.form}>
             <input
                 type="text"
                 value={query}
                 onChange={handleChange}
                 placeholder="Search movies"
+                className={css.input}
             />
-            <button type="submit">Search</button>
+            <button type="submit" className={css.button}>Search</button>
         </form>
     );
     }

@@ -8,6 +8,7 @@
   padding: 1rem;
   background-color: var(--nav-bg-color);
   color: var(--nav-text-color);
+  height: 3rem;
 }
 
 .navBlock {

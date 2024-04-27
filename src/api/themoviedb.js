@@ -17,7 +17,7 @@ export const getTrandingMovies = async () => {
     return response.data;
 }
 
-export const searchMovies = async (query, page=1) => {
+export const searchMovies = async (query, page = 1) => {
     const url = `search/movie?query=${query}&page=${page}`
     const response = await client.get(url);
     return response.data;
