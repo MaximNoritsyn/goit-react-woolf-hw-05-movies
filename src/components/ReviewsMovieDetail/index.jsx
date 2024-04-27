@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../api/themoviedb";
+import { Loader } from "../Loader";
 import css from './index.module.css';
 
 export const ReviewsMovieDetail = () => {
@@ -22,7 +23,7 @@ export const ReviewsMovieDetail = () => {
     }, []);
 
     return (
-        (!movieReviews) ? <div>Loading...</div> :
+        (!movieReviews) ? <Loader /> :
         <ul className={css.list}>
             {movieReviews.map(review => (
                 <li key={review.id} className={css.listItem}>

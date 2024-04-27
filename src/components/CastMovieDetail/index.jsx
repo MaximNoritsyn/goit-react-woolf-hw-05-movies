@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMovieCredits } from "../../api/themoviedb";
 import { useParams } from "react-router-dom";
+import { Loader } from "../Loader";
 import css from './index.module.css';
 
 export const CastMovieDetail = () => {
@@ -23,7 +24,7 @@ export const CastMovieDetail = () => {
     }, []);
 
     return (
-        (!movieCast) ? <div>Loading...</div> :
+        (!movieCast) ? <Loader /> :
         <ul className={css.list}>
             {movieCast.map(actor => (
                 <li key={actor.id} className={css.listItem}>
