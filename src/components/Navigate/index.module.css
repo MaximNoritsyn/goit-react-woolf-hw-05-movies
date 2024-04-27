@@ -1,0 +1,19 @@
+@import url('../../variables.css');
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--nav-bg-color);
+  color: var(--nav-text-color);
+}
+
+.link {
+  color: var(--nav-text-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

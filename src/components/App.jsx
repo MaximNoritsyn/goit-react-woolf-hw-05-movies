@@ -1,25 +1,15 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { Navigate } from '../components/Navigate';
 import { HomePage } from '../pages/HomePage';
 import { MoviesPage } from '../pages/MoviesPage';
 import { MovieDetailsPage } from '../pages/MovieDetailsPage';
+import css from './app.module.css';
 
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-      </nav>
+    <div className={css.main}>
+      <Navigate />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />

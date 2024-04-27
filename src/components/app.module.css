@@ -1,0 +1,6 @@
+@import url('../variables.css');
+
+.main {
+  display: block;
+  color: var(--main-text-color);
+}

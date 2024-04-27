@@ -1,0 +1,19 @@
+@import url('../../../variables.css');
+
+.MovieItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--accent-bg-color);
+  color: var(--movie-item-text-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.image {
+  width: 280px;
+  height: 390px;
+}

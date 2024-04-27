@@ -1,10 +1,13 @@
+import { MovieItem } from './MovieItem/index';
+import css from './index.module.css';
+
 
 export const MoviesList = ({ movies }) => {
   return (
-    <ul>
+    <div className={css.movieList}>
       {movies.map(movie => (
-        <li key={movie.id}>{movie.title}</li>
+        <MovieItem key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </div>
   );
 }

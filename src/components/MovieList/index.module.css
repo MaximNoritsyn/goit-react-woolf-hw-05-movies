@@ -1,0 +1,8 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--main-bg-color);
+  padding: 1rem;
+}
