@@ -5,7 +5,93 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--main-bg-color);
+}
+
+.mainBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.imageBlock {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  max-width: 300px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 1rem;
+  min-width: 300px;
+  max-width: calc(100% - 300px - 4rem);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.decriptionItem {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.detailNavs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+}
+
+.detailNavItem {
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: var(--accent-bg-color);
+  border-radius: 5px 5px 0 0;
+  border: 1px solid var(--nav-bg-color);
+  border-bottom: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--main-text-color);
+}
+
+.detailNavItem:hover {
+  background-color: var(--nav-bg-color);
+  color: var(--nav-text-color);
+}
+
+.detailContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid var(--nav-bg-color);
   padding: 1rem;
   background-color: var(--accent-bg-color);
 }

@@ -28,3 +28,15 @@ export const getMovieDetails = async (id) => {
     const response = await client.get(url);
     return response.data;
 }
+
+export const getMovieCredits = async (id) => {
+    const url = `movie/${id}/credits`
+    const response = await client.get(url);
+    return response.data;
+}
+
+export const getMovieReviews = async (id) => {
+    const url = `movie/${id}/reviews`
+    const response = await client.get(url);
+    return response.data;
+}
