@@ -10,13 +10,16 @@ export const MoviesList = () => {
 
   useEffect(() => {
     setCanLoadMore(false);
-  }, []);
+  }, [setCanLoadMore]);
 
   return (
-    <div className={css.movieList}>
-      {movies && movies.map(movie => (
-        <MovieItem key={movie.id} movie={movie} />
-      ))}
+    <div className={css.container}>
+      <div className={css.movieList}>
+        {movies && movies.map(movie => (
+          <MovieItem key={movie.id} movie={movie} />
+        ))}
+        
+      </div>
       <LoadMore />
     </div>
   );

@@ -8,19 +8,20 @@ export const ReviewsMovieDetail = () => {
     const { movieId } = useParams();
     const [movieReviews, setMovieReviews] = useState(null);
 
-    const setReviews = async () => {
-        try {
-            const data = await getMovieReviews(movieId);
-            setMovieReviews(data.results);
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
+    
 
     useEffect(() => {
+        const setReviews = async () => {
+            try {
+                const data = await getMovieReviews(movieId);
+                setMovieReviews(data.results);
+            }
+            catch (error) {
+                console.error(error);
+            }
+        }
         setReviews();
-    }, []);
+    }, [movieId]);
 
     return (
         (!movieReviews) ? <Loader /> :

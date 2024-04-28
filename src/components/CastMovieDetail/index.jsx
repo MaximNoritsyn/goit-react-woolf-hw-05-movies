@@ -9,19 +9,20 @@ export const CastMovieDetail = () => {
     const { movieId } = useParams();
     const [movieCast, setMovieCast] = useState(null);
 
-    const setMovieCredits = async () => {
-        try {
-            const data = await getMovieCredits(movieId);
-            setMovieCast(data.cast);
-        }
-        catch (error) {
-            alert("Sorry, something went wrong. Please try again later.");
-        }
-    }
+    
 
     useEffect(() => {
+        const setMovieCredits = async () => {
+            try {
+                const data = await getMovieCredits(movieId);
+                setMovieCast(data.cast);
+            }
+            catch (error) {
+                alert("Sorry, something went wrong. Please try again later.");
+            }
+        }
         setMovieCredits();
-    }, []);
+    }, [movieId]);
 
     return (
         <div>

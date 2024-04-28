@@ -10,7 +10,7 @@ export const MoviesPage = () => {
 
     useEffect(() => {
         setMovies([])
-    }, []);
+    }, [setMovies]);
     
     return (
         <div>

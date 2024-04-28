@@ -22,20 +22,19 @@ export const MovieDetailsPage = () => {
 
     const { movieId } = useParams();
 
-    const setMovieDetails = async () => {
-        try {
-            const data = await getMovieDetails(movieId);
-            setMovie(data);
-            setIsError(false);
-        }
-        catch (error) {
-            setIsError(true);
-        }
-    }
-
     useEffect(() => {
+        const setMovieDetails = async () => {
+            try {
+                const data = await getMovieDetails(movieId);
+                setMovie(data);
+                setIsError(false);
+            }
+            catch (error) {
+                setIsError(true);
+            }
+        }
         setMovieDetails();
-    }, []);
+    }, [movieId]);
 
     return (
         <div>

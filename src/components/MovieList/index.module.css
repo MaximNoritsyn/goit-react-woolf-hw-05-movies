@@ -6,3 +6,7 @@
   background-color: var(--main-bg-color);
   padding: 1rem;
 }
+
+.container {
+  background-color: var(--main-bg-color);
+}
