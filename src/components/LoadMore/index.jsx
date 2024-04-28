@@ -1,3 +1,4 @@
+import React from "react";
 import { useMovies } from "context/Movies";
 import css from "./index.module.css";
 

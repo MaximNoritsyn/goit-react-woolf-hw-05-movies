@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useRef } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import { getTrandingMovies, searchMovies } from '../../api/themoviedb';
 
 const MoviesContext = createContext();

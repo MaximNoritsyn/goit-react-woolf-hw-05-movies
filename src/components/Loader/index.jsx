@@ -1,4 +1,5 @@
-import {DNA} from 'react-loader-spinner' 
+import React from 'react';
+import { DNA } from 'react-loader-spinner' 
 import css from './index.module.css';
 
 export const Loader = ({visible}) => {

@@ -1,5 +1,5 @@
 import { NavLink, Routes, Route, Outlet } from "react-router-dom";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { SearchForm } from "components/SearchForm";
 import { Loader } from "components/Loader";
 import styled from "styled-components";

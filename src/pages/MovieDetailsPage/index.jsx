@@ -1,5 +1,5 @@
 import { NavLink, Routes, Route, useParams, Outlet } from "react-router-dom";
-import { useEffect, useState, Suspense, lazy } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import styled from "styled-components";
 import { getMovieDetails, IMAGE_URL } from "../../api/themoviedb";
 import { Loader } from "../../components/Loader";

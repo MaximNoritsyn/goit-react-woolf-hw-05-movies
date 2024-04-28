@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { MovieItem } from './MovieItem/index';
 import { LoadMore } from 'components/LoadMore';
 import { useMovies } from "context/Movies";

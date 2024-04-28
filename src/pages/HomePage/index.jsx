@@ -1,4 +1,4 @@
-import { useEffect, Suspense } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { Outlet } from "react-router-dom";
 import { useMovies } from '../../context/Movies/index';
 import { MoviesList } from '../../components/MovieList/index';
