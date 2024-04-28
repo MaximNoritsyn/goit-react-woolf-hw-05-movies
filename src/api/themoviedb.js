@@ -5,6 +5,8 @@ const HEADERS = {
     accept: 'application/json',
     Authorization: `Bearer ${API_TOKEN}`
 }
+
+export const IMAGE_URL = "https://image.tmdb.org/t/p/w500"
   
 const client = axios.create({
     baseURL: "https://api.themoviedb.org/3",

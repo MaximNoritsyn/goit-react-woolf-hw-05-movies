@@ -34,3 +34,5 @@ export const ReviewsMovieDetail = () => {
         </ul>
     );
 }
+
+export default ReviewsMovieDetail;

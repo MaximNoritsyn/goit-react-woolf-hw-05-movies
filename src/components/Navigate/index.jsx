@@ -1,5 +1,7 @@
-import { NavLink, Routes, Route } from "react-router-dom";
+import { NavLink, Routes, Route, Outlet } from "react-router-dom";
+import { Suspense } from "react";
 import { SearchForm } from "components/SearchForm";
+import { Loader } from "components/Loader";
 import styled from "styled-components";
 import css from "./index.module.css";
 
@@ -20,7 +22,9 @@ export const Navigate = () => {
           <Route path="*" element={<div></div>} />  
           <Route path="/movies" element={<SearchForm />} />  
         </Routes>
-        
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </nav>
     );
 }

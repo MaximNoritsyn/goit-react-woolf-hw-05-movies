@@ -1,0 +1,22 @@
+@import url('../../variables.css');
+
+.NonFoundPage {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--main-bg-color);
+}
+
+.titleNonFoundPage {
+  font-size: 2rem;
+  color: var(--main-text-color);
+  text-align: center;
+}
+
+.textNonFoundPage {
+  font-size: 1rem;
+  color: var(--main-text-color);
+  text-align: center;
+}

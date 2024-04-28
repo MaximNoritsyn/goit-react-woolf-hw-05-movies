@@ -1,11 +1,13 @@
 import { NavLink, Routes, Route, useParams, Outlet } from "react-router-dom";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import styled from "styled-components";
-import { getMovieDetails } from "../../api/themoviedb";
-import { CastMovieDetail } from "../../components/CastMovieDetail";
-import { ReviewsMovieDetail } from "../../components/ReviewsMovieDetail";
+import { getMovieDetails, IMAGE_URL } from "../../api/themoviedb";
 import { Loader } from "../../components/Loader";
+import { NonFoundPage } from "../NonFoundPage";
 import css from './index.module.css';
+
+const CastMovieDetail = lazy(() => import('../../components/CastMovieDetail/index'));
+const ReviewsMovieDetail = lazy(() => import('../../components/ReviewsMovieDetail/index'));
 
 const StyledLink = styled(NavLink)`
   &.active {
@@ -16,6 +18,7 @@ const StyledLink = styled(NavLink)`
 
 export const MovieDetailsPage = () => {
     const [movie, setMovie] = useState(null);
+    const [isError, setIsError] = useState(false);
 
     const { movieId } = useParams();
 
@@ -23,9 +26,10 @@ export const MovieDetailsPage = () => {
         try {
             const data = await getMovieDetails(movieId);
             setMovie(data);
+            setIsError(false);
         }
         catch (error) {
-            console.error(error);
+            setIsError(true);
         }
     }
 
@@ -35,11 +39,11 @@ export const MovieDetailsPage = () => {
 
     return (
         <div>
-            {(!movie) ? <Loader /> :
+            {(!movie) ? (isError ? <NonFoundPage /> : <Loader />) :
             <div className={css.container}>
                 <div className={css.mainBlock}>
                     <div className={css.imageBlock}>
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className={css.image} />
+                        <img src={`${IMAGE_URL}${movie.poster_path}`} alt={movie.title} className={css.image} />
                     </div>
                     <div className={css.descriptionBlock}>
                         <h1 className={css.title}>{movie.title}</h1>
@@ -51,7 +55,7 @@ export const MovieDetailsPage = () => {
                         <p className={css.decriptionItem}>Status: {movie.status}</p>
                         <p className={css.decriptionItem}>{movie.overview}</p>
                     </div>
-                </div >
+                </div>
                 <div className={css.details}>
                     <div className={css.detailNavs}>
                         <StyledLink to="cast" className={css.detailNavItem}>
@@ -62,14 +66,14 @@ export const MovieDetailsPage = () => {
                         </StyledLink>
                     </div>
                     <div className={css.detailContent}>
-                        <Routes path="/movies/:movieId">
-                            <Route path="cast" element={<CastMovieDetail/>} />
-                            <Route path="reviews" element={<ReviewsMovieDetail/>} />
-                        </Routes>
+                            <Routes path="/movies/:movieId">
+                                <Route path="cast" element={<CastMovieDetail/>} />
+                                <Route path="reviews" element={<ReviewsMovieDetail/>} />
+                            </Routes>
                     </div>
                 </div>
             </div>}
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
                 <Outlet />
             </Suspense>
         </div>

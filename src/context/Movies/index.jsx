@@ -19,7 +19,7 @@ export const MoviesProvider = ({ children }) => {
             setMovies(data.results);
         }
         catch (error) {
-            console.error(error);
+            alert('Sorry, something went wrong. Please try again later.');
         }
     }
 
@@ -30,7 +30,7 @@ export const MoviesProvider = ({ children }) => {
             setCanLoadMore(data.page < data.total_pages);
         }
         catch (error) {
-            console.error(error);
+            alert('Sorry, something went wrong. Please try again later.');
         }
     }
 

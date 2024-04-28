@@ -1,5 +1,6 @@
 import { useEffect, Suspense } from 'react';
 import { Outlet } from "react-router-dom";
+import { Loader } from '../../components/Loader';
 import { useMovies } from '../../context/Movies/index';
 import { MoviesList } from '../../components/MovieList/index';
 
@@ -14,7 +15,7 @@ export const MoviesPage = () => {
     return (
         <div>
             <MoviesList />
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
                 <Outlet />
             </Suspense>
         </div>

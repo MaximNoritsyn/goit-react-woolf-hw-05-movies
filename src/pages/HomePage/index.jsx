@@ -2,6 +2,7 @@ import { useEffect, Suspense } from 'react';
 import { Outlet } from "react-router-dom";
 import { useMovies } from '../../context/Movies/index';
 import { MoviesList } from '../../components/MovieList/index';
+import { Loader } from '../../components/Loader';
 
 export const HomePage = () => {
   const { setTrandingMovies } = useMovies();
@@ -14,7 +15,7 @@ export const HomePage = () => {
   return (
     <div>
       <MoviesList />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </div>
