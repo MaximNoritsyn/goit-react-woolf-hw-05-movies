@@ -9,7 +9,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     setTrandingMovies()
-  }, []);
+  }, [setTrandingMovies]);
 
 
   return (
