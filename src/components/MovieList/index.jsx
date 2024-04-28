@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { MovieItem } from './MovieItem/index';
-import { LoadMore } from 'components/LoadMore';
 import { useMovies } from "context/Movies";
 import css from './index.module.css';
 
@@ -20,7 +19,6 @@ export const MoviesList = () => {
         ))}
         
       </div>
-      <LoadMore />
     </div>
   );
 }

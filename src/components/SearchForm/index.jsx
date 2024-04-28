@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useMovies } from '../../context/Movies/index';
 import css from './index.module.css'
 
 export const SearchForm = () => {
-    const { query, setQuery, handleSubmit } = useMovies();
+    const { setSearchMovies, setMovies } = useMovies();
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const queryParams = searchParams.get('query') || '';
+
+    const [query, setQuery] = useState(queryParams);
     
     const handleChange = e => {
         setQuery(e.target.value);
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        setSearchParams({'query': query});
+        setMovies([]);
+        setSearchMovies(query);
     };
     
     return (

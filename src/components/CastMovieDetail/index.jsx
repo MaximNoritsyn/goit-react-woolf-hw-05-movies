@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { getMovieCredits, IMAGE_URL } from "../../api/themoviedb";
+import { getMovieCredits, getMovieImage } from "../../api/themoviedb";
 import { useParams, Outlet } from "react-router-dom";
 import { Loader } from "../Loader";
 import css from './index.module.css';
@@ -30,7 +30,7 @@ export const CastMovieDetail = () => {
             <ul className={css.list}>
                 {movieCast.map(actor => (
                     <li key={actor.id} className={css.listItem}>
-                        <img src={`${IMAGE_URL}${actor.profile_path}`} alt={actor.name} className={css.image} />
+                        <img src={getMovieImage(actor.profile_path)} alt={actor.name} className={css.image} />
                         <p className={css.name}>{actor.name}</p>
                         <p className={css.character}>Character: {actor.character}</p>
                     </li>

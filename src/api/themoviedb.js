@@ -6,7 +6,12 @@ const HEADERS = {
     Authorization: `Bearer ${API_TOKEN}`
 }
 
-export const IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+const EMPTY_IMAGE = "https://glavcom.ua/img/article/9139/95_main-v1678685008.jpg"
+
+export const getMovieImage = (path) => {
+    return path ? `${IMAGE_URL}${path}` : EMPTY_IMAGE;
+}
   
 const client = axios.create({
     baseURL: "https://api.themoviedb.org/3",

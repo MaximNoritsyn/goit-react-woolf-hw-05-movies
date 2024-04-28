@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useRef } from "react";
+import React, { createContext, useContext, useState} from "react";
 import { getTrandingMovies, searchMovies } from '../../api/themoviedb';
 
 const MoviesContext = createContext();
@@ -9,11 +9,7 @@ export const useMovies = () => {
 
 export const MoviesProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState('');
-    const [page, setPage] = useState(1);
     const [canLoadMore, setCanLoadMore] = useState(false);
-
-    const lastQuery = useRef(query);
     
     const setTrandingMovies = async () => {
         try {
@@ -28,7 +24,7 @@ export const MoviesProvider = ({ children }) => {
     const setSearchMovies = async (query, page=1) => {
         try {
             const data = await searchMovies(query, page);
-            setMovies(data.results);
+            setMovies(prev => [...prev, ...data.results]);
             setCanLoadMore(data.page < data.total_pages);
         }
         catch (error) {
@@ -40,28 +36,14 @@ export const MoviesProvider = ({ children }) => {
         setTrandingMovies();
     }, []);
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        setPage(1);
-        lastQuery.current = query;
-        setSearchMovies(query);
-    };
-
-    useEffect(() => {
-        if (page > 1 && lastQuery.current === query) {
-            setSearchMovies(query, page);
-        }
-    }, [page, query]);
 
     const values = {
         movies,
         setMovies,
-        setQuery,
         canLoadMore,
-        setPage,
         setCanLoadMore,
         setTrandingMovies,
-        handleSubmit
+        setSearchMovies
     };
 
     return (

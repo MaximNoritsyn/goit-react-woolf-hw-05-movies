@@ -1,7 +1,7 @@
 import { NavLink, Routes, Route, useParams, Outlet } from "react-router-dom";
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import styled from "styled-components";
-import { getMovieDetails, IMAGE_URL } from "../../api/themoviedb";
+import { getMovieDetails, getMovieImage } from "../../api/themoviedb";
 import { Loader } from "../../components/Loader";
 import { NonFoundPage } from "../NonFoundPage";
 import css from './index.module.css';
@@ -42,7 +42,7 @@ export const MovieDetailsPage = () => {
             <div className={css.container}>
                 <div className={css.mainBlock}>
                     <div className={css.imageBlock}>
-                        <img src={`${IMAGE_URL}${movie.poster_path}`} alt={movie.title} className={css.image} />
+                        <img src={getMovieImage(movie.poster_path)} alt={movie.title} className={css.image} />
                     </div>
                     <div className={css.descriptionBlock}>
                         <h1 className={css.title}>{movie.title}</h1>
