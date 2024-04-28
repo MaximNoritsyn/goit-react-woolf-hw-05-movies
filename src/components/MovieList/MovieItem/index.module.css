@@ -13,6 +13,10 @@
   width: 300px;
 }
 
+.MovieItem:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 .image {
   width: 280px;
   height: 390px;
