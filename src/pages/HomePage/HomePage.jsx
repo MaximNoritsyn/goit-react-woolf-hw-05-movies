@@ -1,7 +1,5 @@
-import React, { useEffect, Suspense, useState } from 'react';
-import { Outlet } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import { MoviesList } from '../../components/MovieList/MovieList';
-import { Loader } from '../../components/Loader/Loader';
 import { getTrendingMovies } from '../../api/themoviedb';
 
 export const HomePage = () => {
