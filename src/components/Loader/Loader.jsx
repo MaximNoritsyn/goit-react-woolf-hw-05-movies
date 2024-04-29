@@ -1,6 +1,6 @@
 import React from 'react';
 import { DNA } from 'react-loader-spinner' 
-import css from './index.module.css';
+import css from './Loader.module.css';
 
 export const Loader = ({visible}) => {
   return (<div className={css.dnaWrapper}>

@@ -18,7 +18,7 @@ const client = axios.create({
     headers: HEADERS
 });
 
-export const getTrandingMovies = async () => {
+export const getTrendingMovies = async () => {
     const url = "trending/movie/day"
     const response = await client.get(url);
     return response.data;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getMovieImage } from '../../../api/themoviedb';
-import css from './index.module.css';
+import css from './MovieItem.module.css';
 
 export const MovieItem = ({ movie }) => {
     return (

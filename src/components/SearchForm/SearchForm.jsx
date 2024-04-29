@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useMovies } from '../../context/Movies/index';
-import css from './index.module.css'
+import css from './SearchForm.module.css'
 
 export const SearchForm = () => {
     const { setSearchMovies, setMovies } = useMovies();

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { getMovieCredits, getMovieImage } from "../../api/themoviedb";
 import { useParams, Outlet } from "react-router-dom";
-import { Loader } from "../Loader";
-import css from './index.module.css';
+import { Loader } from "../Loader/Loader";
+import css from './CastMovieDetail.module.css';
 
 export const CastMovieDetail = () => {
 

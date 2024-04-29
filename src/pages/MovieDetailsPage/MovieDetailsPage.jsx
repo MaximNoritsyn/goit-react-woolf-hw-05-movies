@@ -2,12 +2,12 @@ import { NavLink, Routes, Route, useParams, Outlet } from "react-router-dom";
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import styled from "styled-components";
 import { getMovieDetails, getMovieImage } from "../../api/themoviedb";
-import { Loader } from "../../components/Loader";
-import { NonFoundPage } from "../NonFoundPage";
-import css from './index.module.css';
+import { Loader } from "../../components/Loader/Loader";
+import { NonFoundPage } from "../NonFoundPage/NonFoundPage";
+import css from './MovieDetailsPage.module.css';
 
-const CastMovieDetail = lazy(() => import('../../components/CastMovieDetail/index'));
-const ReviewsMovieDetail = lazy(() => import('../../components/ReviewsMovieDetail/index'));
+const CastMovieDetail = lazy(() => import('../../components/CastMovieDetail/CastMovieDetail'));
+const ReviewsMovieDetail = lazy(() => import('../../components/ReviewsMovieDetail/ReviewsMovieDetail'));
 
 const StyledLink = styled(NavLink)`
   &.active {
