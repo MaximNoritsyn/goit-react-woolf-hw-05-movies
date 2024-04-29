@@ -25,9 +25,6 @@ export const HomePage = () => {
   return (
     <div>
       <MoviesList movies={movies} />
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
     </div>
   );
 }

@@ -11,7 +11,6 @@ export const MoviesList = ({movies}) => {
         {movies && movies.map(movie => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
-        
       </div>
     </div>
   );

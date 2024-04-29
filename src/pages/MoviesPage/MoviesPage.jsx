@@ -1,6 +1,5 @@
-import React, { useEffect, Suspense, useState } from 'react';
-import { Outlet, useSearchParams } from "react-router-dom";
-import { Loader } from '../../components/Loader/Loader';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from "react-router-dom";
 import { MoviesList } from '../../components/MovieList/MovieList';
 import { searchMovies } from '../../api/themoviedb';
 import css from './MoviesPage.module.css';
@@ -20,8 +19,8 @@ export const MoviesPage = () => {
     };
 
     useEffect(() => {
-        setMovies([])
-    }, []);
+        setSearchMovies(queryParams)
+    }, [queryParams]);
 
     const setSearchMovies = async (query) => {
         try {
@@ -35,9 +34,8 @@ export const MoviesPage = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setSearchParams({'query': query});
         setMovies([]);
-        setSearchMovies(query);
+        setSearchParams({'query': query});
     };
     
     return (
@@ -53,9 +51,6 @@ export const MoviesPage = () => {
                 <button type="submit" className={css.button}>Search</button>
             </form>
             <MoviesList movies={movies} />
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>
         </div>
     );
 }

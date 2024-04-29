@@ -55,7 +55,10 @@ export const MovieDetailsPage = () => {
                         <p className={css.decriptionItem}>{movie.overview}</p>
                     </div>
                 </div>
-                <div className={css.details}>
+                    <div className={css.details}>
+                        <Suspense fallback={<Loader />}>
+                            <Outlet />
+                        </Suspense>
                     <div className={css.detailNavs}>
                         <StyledLink to="cast" className={css.detailNavItem}>
                             Cast
@@ -72,9 +75,7 @@ export const MovieDetailsPage = () => {
                     </div>
                 </div>
             </div>}
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>
+            
         </div>
     );
 }

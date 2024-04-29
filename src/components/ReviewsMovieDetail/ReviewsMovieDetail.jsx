@@ -8,8 +8,6 @@ export const ReviewsMovieDetail = () => {
     const { movieId } = useParams();
     const [movieReviews, setMovieReviews] = useState(null);
 
-    
-
     useEffect(() => {
         const setReviews = async () => {
             try {
@@ -25,6 +23,7 @@ export const ReviewsMovieDetail = () => {
 
     return (
         (!movieReviews) ? <Loader /> :
+        (movieReviews.length === 0) ? <p className={css.noReviews}>No reviews</p> :
         <ul className={css.list}>
             {movieReviews.map(review => (
                 <li key={review.id} className={css.listItem}>

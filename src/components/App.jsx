@@ -13,15 +13,14 @@ const NonFoundPage = lazy(() => import('../pages/NonFoundPage/NonFoundPage'));
 export const App = () => {
   return (
     <div className={css.main}>
-      <Navigate />
-      <Suspense fallback={<Loader />}>
-        <Routes>
+      <Routes>
+        <Route path="/" element={<Navigate />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
-          <Route path="/test" element={<NonFoundPage />} />
-        </Routes>
-      </Suspense>
+          <Route path="/*" element={<NonFoundPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 };

@@ -10,16 +10,19 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const Navigate = () => {
-    return (
-      <nav className={css.nav}>
-        <div className={css.navBlock}>
-          <StyledLink to="/" className={css.link}>Home</StyledLink>
-          <StyledLink to="/movies" className={css.link}>Movies</StyledLink>
-        </div>
+export const Navigate = ({children}) => {
+  return (
+      <div className={css.mainBody}>
+        <nav className={css.nav}>
+          <div className={css.navBlock}>
+            <StyledLink to="/" className={css.link}>Home</StyledLink>
+            <StyledLink to="/movies" className={css.link}>Movies</StyledLink>
+          </div>
+        </nav>
+        {children}
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </nav>
+      </div>
     );
 }

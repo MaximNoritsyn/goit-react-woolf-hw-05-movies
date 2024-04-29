@@ -1,6 +1,6 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import { getMovieCredits, getMovieImage } from "../../api/themoviedb";
-import { useParams, Outlet } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
 import css from './CastMovieDetail.module.css';
 
@@ -36,9 +36,6 @@ export const CastMovieDetail = () => {
                     </li>
                 ))}
             </ul>}
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>
         </div>
     );
 }
