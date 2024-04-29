@@ -5,7 +5,7 @@ import { Loader } from "./Loader/Loader";
 import css from './app.module.css';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
-const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviePage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage/MovieDetailsPage'));
 const NonFoundPage = lazy(() => import('../pages/NonFoundPage/NonFoundPage'));
 
